@@ -1,84 +1,88 @@
-# 🎓 Sistema de Gestión Académica - API RESTful con NestJS y TypeORM
+<p align="center">
+  <img src="https://nestjs.com/img/logo-small.svg" width="100" alt="NestJS Logo" />
+</p>
 
-Esta API RESTful gestiona estudiantes, profesores, cursos e inscripciones. Fue construida con NestJS, TypeORM y buenas prácticas de desarrollo backend.
+<h1 align="center"> Sistema de Gestión Académica - API RESTful</h1>
 
-## 📁 Estructura del Proyecto
+<p align="center">
+  API construida con <a href="https://nestjs.com" target="_blank">NestJS</a> y <a href="https://typeorm.io/" target="_blank">TypeORM</a> para gestionar estudiantes, profesores, cursos e inscripciones.
+</p>
 
-Este proyecto sigue una **arquitectura modular**, donde cada carpeta representa un módulo con sus respectivos archivos:
+<p align="center">
+  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+  <a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+</p>
 
+---
+
+##  Descripción
+
+Esta API permite la creación, consulta, edición y eliminación de:
+
+- 👨‍🎓 Estudiantes
+- 👨‍🏫 Profesores
+- 📚 Cursos
+- 📝 Inscripciones
+
+Incluye relaciones entre entidades, validaciones, manejo de errores y está estructurada siguiendo buenas prácticas.
+
+---
+
+## 📁 Arquitectura del Proyecto
+
+Este proyecto utiliza la **arquitectura modular de NestJS**:
 src/
 ├── modules/
-│ ├── estudiante/ # CRUD de estudiantes
-│ ├── profesor/ # CRUD de profesores
-│ ├── curso/ # CRUD de cursos
-│ └── inscripcion/ # CRUD de inscripciones
-├── common/ # (opcional) para filtros, interceptores
-├── app.module.ts # Módulo principal que importa los demás
-└── main.ts # Punto de entrada de la aplicación
+│ ├── estudiante/ # CRUD completo
+│ ├── profesor/ # CRUD completo
+│ ├── curso/ # CRUD completo
+│ └── inscripcion/ # CRUD completo
+├── common/ # Filtros o middlewares compartidos
+├── app.module.ts # Módulo raíz
+└── main.ts # Entrada principal
 
-markdown
-Copiar
-Editar
+Cada módulo incluye:
 
-Cada módulo tiene su propio:
-
-- Controlador (`*.controller.ts`)
-- Servicio (`*.service.ts`)
-- DTOs (`dto/*.dto.ts`)
-- Entidad (`*.entity.ts`)
-- Módulo (`*.module.ts`)
-
-## 📌 Funcionalidades
-
-- CRUD completo para:
-  - Estudiante
-  - Profesor
-  - Curso
-  - Inscripción
-- Relaciones entre entidades:
-  - Estudiante ➡️ Inscripción (OneToMany)
-  - Profesor ➡️ Curso (OneToMany)
-  - Curso ➡️ Inscripción (OneToMany)
-- Validaciones de datos con `class-validator`
-- Manejo de errores con `HttpException` y `HttpStatus`
-- Pruebas realizadas con **Insomnia**
-- Código subido y documentado en GitHub
+- `controller.ts`
+- `service.ts`
+- `dto/*.dto.ts`
+- `entity.ts`
+- `module.ts`
 
 ---
 
-## ⚙️ Requisitos
+## ⚙ Requisitos
 
-- Node.js 18+
-- MySQL o XAMPP/MAMP/WAMP
+- Node.js v18 o superior
+- MySQL (o MariaDB / XAMPP / WAMP)
 - Git
-- Postman o Insomnia (para probar)
+- Postman o Insomnia
 
 ---
 
-## 🧪 Variables de Entorno
+##  Variables de Entorno
 
-Antes de correr el proyecto, crea un archivo `.env` con lo siguiente:
-
-```env
+Crear un archivo `.env` con el siguiente contenido (ajustar según tu entorno):
+.env
 DB_HOST=localhost
 DB_PORT=3306
-DB_USERNAME=TU_USUARIO
-DB_PASSWORD=TU_CONTRASEÑA
+DB_USERNAME=root
+DB_PASSWORD=123456
 DB_NAME=api_gestion_academica
-🚀 Instalación y uso
-bash
-Copiar
-Editar
-# 1. Clonar el repositorio
-git clone https://github.com/tu_usuario/api-gestion-cursos.git
 
-# 2. Ingresar al proyecto
+Instalación y Uso
+# 1. Clona el repositorio
+git clone (https://github.com/Javixd0612/api-nest-cursos)
+
+# 2. Entra al proyecto
 cd api-gestion-cursos
 
-# 3. Instalar dependencias
+# 3. Instala las dependencias
 npm install
 
-# 4. Crear archivo .env como se muestra arriba
+# 4. Crea el archivo .env como se explicó arriba
 
-# 5. Iniciar en modo desarrollo
+# 5. Corre la aplicación en modo desarrollo
 npm run start:dev
